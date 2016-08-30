@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta http-equiv="Cache-Control" content="no-transform " />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>NBA定制球衣</title>
+<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="css/keyboard.css" type="text/css">
+<link rel="stylesheet" href="css/slider.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.keyboard.js"></script>
+<!-- <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script> -->
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="js/imagesLoaded.js"></script>
+<!-- <script type="text/javascript" src="js/main.js"></script> -->
+<script type="text/javascript">
+$(function(){
+        $('.ui-main-slider').flexslider({
+            animation: "slide",
+            slideshow: false,
+            animationLoop: true,
+            controlNav: false, 
+            directionNav: false,
+            init: function(){
+                $('.e-whole-tab ul li button').click(function(){
+                    $(".e-whole-tab ul li button").attr("disabled", true);
+                    var target=$(this).parent().index()
+                    //console.log(target)
+                    $('.e-whole-tab ul li').removeClass('active')
+                    $(this).parent().addClass('active');
+                    $('.slides').css({'transform':'translate3d(-'+1080*(target+1)+'px, 0px, 0px)','transition-duration':'0.6s'})
+                    setTimeout(function() {
+                    $(".e-whole-tab ul li button").removeAttr("disabled");},600)
+                    });
+                //点击“定制球衣”button
+                $('.e-whole-tab ul li').eq(0).find('button').click(function(){
+                    $('.e-custome,.e-custome-step,.e-custome-qr').hide();
+                    $('.e-custome-home,.e-custome-preview').show();
+                    $('.e-shirt-english,.e-shirt-number').attr("value","");
+                    })  
+                //点击“球衣墙”button
+                $('.e-whole-tab ul li').eq(1).find('button').click(function(){
+                    $('.e-storewide-detail').hide(0,function(){
+                        $('.e-storewide-jersey').show();
+                        });
+                    })
+                //点击"互动拍照"button
+                $('.e-whole-tab ul li').eq(2).find('button').click(function(){
+                    $('.e-webcam-scan').hide(0);
+                    var canvas = document.getElementById("canvas");
+                    context = canvas.getContext("2d");
+                    video = document.getElementById("video");
+                    videoObj = {
+                        "video": true
+                    };
+                        
+                    var count = 5;
+                    $('.e-webcam-txt p span').text(count);
+                    $('.e-webcam-txt02,.resnap').hide(0,function(){
+                        //$('.e-webcam-txt').show();
+                        $('.e-webcam-snap').show();
+                        });
+                    $(".e-webcam-snap").removeAttr("disabled");
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(video, 0, 0, 562, 768);
+                    $('.e-webcam-borderview,#video').show();
+                    })  
+                },
+        }); 
+})
+window.onload=function(){
+    
+    $(".e-whole-tab ul li button").attr("disabled", false)
+    $('#keyboard').keyboard({
+        lockInput: true, // prevent manual keyboard entry
+        layout: 'custom',
+        maxLength: 10,
+        customLayout: {
+            'normal': [
+                'q w e r t y u i o p {bksp}',
+                'a s d f g h j k l ',
+                'z x c v b n m',
+                '{cancel} {shift} {space} {accept}'
+            ]
+        },
+        appendTo: '.ui-custome-txten',          
+    })
+
+    $('#keyboard2').keyboard({
+        lockInput: true, // prevent manual keyboard entry
+        layout: 'custom',
+        maxLength: 2,
+        customLayout: {
+            'normal': [
+                '1 2 3 4 5',
+                '6 7 8 9 0',
+                '{bksp} {cancel} {accept}'
+            ]
+        },
+        appendTo: '.ui-custome-txtnum', 
+    })
+        
+        
+        
+    }
+</script>
+
+</head>
+<body>
+    <div class="ui-shopcode-attention">
+        shopCode为空！
+    </div>
+
+    <div class="ui-content" id="maincon">
+        <div class="ui-whole-tab e-whole-tab">
+                    <ul>
+                        <li class="active"><button><img src="images/icon-custome.png" width="40"/> 定制球衣</button></li>
+                        <li><button><img src="images/icon-storewide.png" width="40"/> 球衣墙</button></li>
+                        <li><button><img src="images/icon-cam.png" width="40"/> 互动拍照</button></li>
+                    </ul>
+                </div>
+                <div class="ui-main-slider">
+                    <ul class="slides">
+                        the Custom Panel
+                        <li>
+                            <div class="ui-custome-con">
+                                <div class="ui-custome-home e-custome-home"><img src="images/customize/customize-home.jpg" width="1080"/><img class="ui-custome-start e-custome-start" src="images/customize/btn-start.png" width="260"/></div>
+                                <div class="ui-custome e-custome">
+                                    <div class="slogan"><img src="images/customize/slogan.png" width="1080"/></div>
+                                    <div class="ui-custome-team e-custome-team">
+                                        <ul class="clearfix">
+                                            <li data-code="978922">
+                                                <div><img class="up" src="images/customize/team/76ers.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/76ers-jersey.png" width="298"/></div>
+                                                <p>费城76人</p>
+                                            </li>
+                                            <li data-code="978914">
+                                                <div><img class="up" src="images/customize/team/chi.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/chi-jersey.png" width="298"/></div>
+                                                <p>芝加哥公牛</p>
+                                            </li>
+                                            <li data-code="978884">
+                                                <div><img class="up" src="images/customize/team/cel.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/cel-jersey.png" width="298"/></div>
+                                                <p>波士顿凯尔特人</p>
+                                            </li>
+                                        </ul>
+                                        <ul class="clearfix">
+                                            <li data-code="1053075">
+                                                <div><img class="up" src="images/customize/team/mia.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/mia-jersey.png" width="298"/></div>
+                                                <p>迈阿密热火</p>
+                                            </li>
+                                            <li data-code="978925">
+                                                <div><img class="up" src="images/customize/team/sac.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/sac-jersey.png" width="298"/></div>
+                                                <p>萨克拉门托国王</p>
+                                            </li>
+                                            <li data-code="1160563">
+                                                <div><img class="up" src="images/customize/team/ind.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/ind-jersey.png" width="298"/></div>
+                                                <p>印第安纳步行者</p>
+                                            </li>
+                                        </ul>
+                                        <ul class="clearfix">
+                                            <li data-code="978896">
+                                                <div><img class="up" src="images/customize/team/lal.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/lal-jersey.png" width="298"/></div>
+                                                <p>洛杉矶湖人</p>
+                                            </li>
+                                            <li data-code="1053014">
+                                                <div><img class="up" src="images/customize/team/njn.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/njn-jersey.png" width="298"/></div>
+                                                <p>布鲁克林篮网</p>
+                                            </li>
+                                            <li data-code="852924">
+                                                <div><img class="up" src="images/customize/team/hou.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/hou-jersey.png" width="298"/></div>
+                                                <p>休斯顿火箭</p>
+                                            </li>
+                                        </ul>
+                                        <ul class="clearfix">
+                                            <li data-code="978890">
+                                                <div><img class="up" src="images/customize/team/den.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/den-jersey.png" width="298"/></div>
+                                                <p>丹佛掘金</p>
+                                            </li>
+                                            <li data-code="978908">
+                                                <div><img class="up" src="images/customize/team/sas.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/sas-jersey.png" width="298"/></div>
+                                                <p>圣安东尼奥马刺</p>
+                                            </li>
+                                            <li data-code="1052962">
+                                                <div><img class="up" src="images/customize/team/nyn.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/nyn-jersey.png" width="298"/></div>
+                                                <p>纽约尼克斯</p>
+                                            </li>
+                                        </ul>
+                                        <ul class="clearfix">
+                                            <li data-code="978927" style="float:right; margin-right:25px;">
+                                                <div><img class="up" src="images/customize/team/okc.png" width="298"/></div>
+                                                <div><img class="lower" src="images/customize/team/okc-jersey.png" width="298"/></div>
+                                                <p>俄克拉荷马雷霆</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="ui-custome-view e-custome-view"><img src="images/customize/btn-view-change.png" width="180"/></div>
+                                </div>
+                                <div class="ui-custome-step e-custome-step">
+                                    <div class="ui-custome-edit">
+                                        <div><img src="images/customize/title.jpg" width="689"/></div>
+                                        <div class="ui-custome-form">
+                                            <ul class="clearfix">
+                                                <li class="ui-custome-txten">
+                                                    <h3>您需要印刷的英文</h3>
+                                                    <input class="e-shirt-english" id="keyboard" type="text" name="" value=""/>
+                                                    <p>*最多显示10个大写英文字母</p>
+                                                </li>
+                                                <li class="ui-custome-txtnum">
+                                                    <h3>您需要显示的号码</h3>
+                                                    <input class="e-shirt-number" id="keyboard2" type="text" name="" value=""/>
+                                                    <p>*最多显示2位数字</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="ui-custome-sizes clearfix e-custome-sizes ">
+                                            <ul>
+                                                <li class="active">
+                                                    <img src="images/customize/size.png"/>
+                                                    <div>
+                                                        <p>规格:<span>175/96Y</span></p>
+                                                        <p>胸围:<span>98</span></p>
+                                                        <p>衣长:<span>69</span></p>
+                                                    </div>
+                                                    <h3>S</h3>
+                                                </li>
+                                                <li>
+                                                    <img src="images/customize/size.png"/>
+                                                    <div>
+                                                        <p>规格:<span>175/96Y</span></p>
+                                                        <p>胸围:<span>98</span></p>
+                                                        <p>衣长:<span>69</span></p>
+                                                    </div>
+                                                    <h3>M</h3>
+                                                </li>
+                                                <li>
+                                                    <img src="images/customize/size.png"/>
+                                                    <div>
+                                                        <p>规格:<span>175/96Y</span></p>
+                                                        <p>胸围:<span>98</span></p>
+                                                        <p>衣长:<span>69</span></p>
+                                                    </div>
+                                                    <h3>L</h3>
+                                                </li>
+                                                <li>
+                                                    <img src="images/customize/size.png"/>
+                                                    <div>
+                                                        <p>规格:<span>175/96Y</span></p>
+                                                        <p>胸围:<span>98</span></p>
+                                                        <p>衣长:<span>69</span></p>
+                                                    </div>
+                                                    <h3>XL</h3>
+                                                </li>
+                                                <li>
+                                                    <img src="images/customize/size.png"/>
+                                                    <div>
+                                                        <p>规格:<span>175/96Y</span></p>
+                                                        <p>胸围:<span>98</span></p>
+                                                        <p>衣长:<span>69</span></p>
+                                                    </div>
+                                                    <h3>XXL</h3>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="ui-custome-btns">
+                                                <img class="e-custome-backtoteam" src="images/customize/btn-back.png" width="160"/>
+                                                <img class="e-custome-previewbtn" src="images/customize/btn-preview.png" width="160"/>
+                                                <img class="e-custome-confirm" src="images/customize/btn-confirm.png" width="160"/>
+                                        </div>
+        
+                                        <div class="ui-custome-sizeattention e-custome-sizeattention">
+                                            请选择尺码!
+                                        </div>
+        
+                                    </div>
+                                    the defult custome img
+                                    <div class="ui-custome-preview">
+                                        <div class="e-custome-preview"><img src="images/customize/defult.jpg" width="655"/></div>
+                                        <div class="ui-custome-qr e-custome-qr">
+                                            <img src="images/customize/qr-txt.png" width="200"/>
+                                            <img src="images/customize/qr.jpg" width="186"/>
+                                            <p>请扫描上方的二维码，通过手机确认您定制的球衣！</p>
+                                            <p style="font-weight: bold; font-size:16px;color: #ec184b; margin-top:15px;">请打开微信扫描此二维码进行支付，本系统仅支持微信支付</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- 图片还未加载完成时的弹窗 -->
+                          <div class="ui-pop-con e-pop-con"> <a href="javascript:void(0)" class="ui-close e-pop-close"> <img src="images/close.png" width="104"/> </a>
+                            <div>
+                              <div class="ui-loader"> <span></span> <span></span> <span></span> <span></span> </div>
+                              <p>正在加载，请稍后...</p>
+                            </div>
+                          </div>
+                        </li>
+                        the Jersey Panel
+                        <li>
+                            <div class="ui-storewide">
+                                <div class="ui-storewide-jersey e-storewide-jersey">
+                                    <span class="left"></span>
+                                    <ul class="clearfix">
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="clearfix">
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="clearfix">
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/storewide/pros-img.png" width="314"/>
+                                            <p>Swingman球迷版球衣</p>
+                                            <p class="price">￥ 74.99</p>
+                                        </li>
+                                    </ul>
+                                    <span class="right"></span>
+                                </div>
+                                <div class="ui-storewide-detail e-storewide-detail">
+                                    <ul>
+                                        <li><img src="images/storewide/pro-large.png" width="620"/></li>
+                                        <li class="qr"><img src="images/storewide/qr.jpg" width="158"/></li>
+                                        <li><p>REPLICA JERSEY球迷版球衣</p></li>
+                                        <li><img src="images/storewide/txt.png" width="1080"/></li>
+                                    </ul>
+                                    <div class="ui-storewide-back e-storewide-back"><img src="images/customize/btn-back.png" width="160" draggable="false"></div>
+                                </div>
+                            </div>
+                        </li>
+                        the WebCam Panel
+                        <li>
+                            <div class="ui-webcam-camreload" onClick="window.location.reload()"><img src="images/webcam/icon-camera.jpg" width="52"/></div>
+                            <div class="ui-webcam">
+                                <div class="ui-webcam-control">
+                                    <div class="ui-webcam-camera">
+                                           <img class="e-webcam-borderview" src="images/webcam/borders/1-1.png" width="740" height="959"/>
+                                           <video id="video" width="1279" height="959" autoplay="autoplay"></video>
+                                        <canvas id="canvas" width="740" height="959"></canvas>
+                                    </div>
+                                    <div class="ui-webcam-borders e-webcam-borders">
+                                            <span class="pre"></span>
+                                            <ul>
+                                                <li><img src="images/webcam/borders/1-1.png" width="220"/></li>
+                                                <li><img src="images/webcam/borders/1-2.png" width="220"/></li>
+                                                <li><img src="images/webcam/borders/1-3.png" width="220"/></li>
+                                            </ul>
+                                            <ul style="display:none">
+                                                <li><img src="images/webcam/borders/1-4.png" width="220"/></li>
+                                                <li><img src="images/webcam/borders/1-5.png" width="220"/></li>
+                                                <li><img src="images/webcam/borders/1-6.png" width="220"/></li>
+                                            </ul>
+                                            <ul style="display:none">
+                                                <li><img src="images/webcam/borders/1--7.png" width="220"/></li>
+                                            </ul>
+                                            <span class="next"></span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="ui-webcam-controller" style="position:relative;">
+                                        <ul>
+                                            <li><input class="ui-webcam-snap e-webcam-snap" type="button" name="" value=""/></li>
+                                            <li class="e-webcam-txt" style="display:none"><p><span>5</span></p></li>
+                                            <li class="e-webcam-txt02" style="display:none; margin:0 20px 5px 0"><img src="images/webcam/iconfont-check.png" width="50"/></li>
+                                            <li class="e-retake"><img class="resnap" style="display:none" src="images/webcam/btn-back.png" width="210"/></li>
+                                        </ul>
+                                        
+                                        
+                                        <div style="position:absolute; right:0; top:35px; color:#FFF; font-size:18px; width:200px;">
+                                            <p>T1：</p>
+                                            <p>T2：</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-webcam-scan e-webcam-scan"><img src="images/webcam/qr.jpg" width="213"/></div>
+                                此处生成的图片
+                                <div style="display:none">
+                                    <canvas id="canvas-small" width="250" height="325"></canvas>
+                                    <img class="e-webcam-final" src=""/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+    </div>
+
+    <!-- 图片加载完成之前显示loading -->
+    <div class="ui-page-loading-pop" id="loadingPage">
+        <div class="ui-page-loading">
+            <div class="box">
+                <div class="speed"> </div>
+                <span class="text">
+                    Loading<span id="loadingSpeed"></span>
+                 </span>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+
+
+
+
+
+
+    //console.log(imgLength);
+    
+    var i = 0;
+    function loadingImg() {
+        var imagesItem = images[i];
+        var imagesItemSrc = imagesItem.getAttribute('src');// 获取当前 img 的相对路径
+        var img = new Image();// 创建一个Image对象
+        img.src = imagesItemSrc;// 定义Image对象的src , 这样做就相当于给浏览器缓存了一张图片
+        var speed = parseInt( i / ( imgLength - 1 ) * 100) ;
+        loadingSpeed.innerHTML = speed + "%";
+        if(img.src!=''){
+            if(img.complete) { // 返回浏览器是否已完成对图像的加载
+                i++;
+                loadingImg();
+            }else {
+                img.onload = function(){ // 图片下载完毕时
+                    i++;
+                    loadingImg();
+                } 
+            }
+        }
+        if(img.src == '') {
+            i++;
+            loadingImg();
+        }
+        if (i == imgLength-1) {
+            setTimeout(function(){
+                showPage();
+            },2000)
+        }
+    }
+   //loadingImg();
+    function showPage(){
+        document.getElementById('maincon').style.display="block";
+        document.getElementById('loadingPage').style.display="none";
+    }
+</script>
+<script type="text/javascript">
+    var a = [34,26,78,93,56,31,28,99];
+    var max = a[0];
+    var sortByAscending = function(Arr){
+        for(i=0;i<Arr.length;i++){
+            for(j=0;j<Arr.length-i;j++){
+                if(Arr[j]>Arr[j+1]){
+                    max = Arr[j];
+                    Arr[j] = Arr[j+1];
+                    Arr[j+1] = max;
+                }
+            }
+        }
+        return(Arr)
+    }
+    sortByAscending(a);
+    var a = [34,26,78,93,56,31,28,99];
+    var addIndex = function(Arr) {
+        var b = new Array();
+        for(i = 0; i<Arr.length; i++){
+            b[i] = Arr[i] + i ;
+        }
+        return(b);
+    }
+    addIndex(a);
+    var a = [34,26,78,93,56,31,28,99];
+    var multiply = function(Arr,n){
+        var b = new Array();
+        for(i = 0; i<Arr.length; i++){
+            b[i] = Arr[i]*n ;
+        }
+        return(b);
+    }
+    multiply(a,5);
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {         
+        imgLoader.loadAllImages();
+    });
+</script>
+</html>
