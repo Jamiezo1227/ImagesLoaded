@@ -1,19 +1,21 @@
 (function(){
 
-	/*this.imgLoader = {};
+	var imgLoader = this.imgLoader = {};
 
-	imgLoader.options= {
-		loadingElement:document.getElementById('loadingSpeed');
-	};*/
+	imgLoader.options = {
+		loadingSpeedUi : '',
+		loadedCallBack :function(){}
+	}
 
-	var imagesLoaded = function(options){
-		/*if(null!=options){
-			var loadingIcon = options.loadingIcon || imgLoader.options.loadingIcon;
-		}else{
-			var loadingIcon =  imgLoader.options.loadingIcon;
+	imgLoader.loadAllImages  = function(options){
+
+		if(options.loadingSpeedUi){
+			var loadingSpeedUi =  options.loadingSpeedUi || imgLoader.options.loadingSpeedUi;
 		}
-		*/
 
+		if(options.loadedCallBack){
+			var loadedCallBack = options.loadedCallBack || imgLoader.options.loadedCallBack; 
+		}
 
 		var images = document.getElementsByTagName('img'); // 获取页面上所有的img 元素
 		var imgLength = images.length; // 获取图片的张数
@@ -48,33 +50,25 @@
 			var imgLoadedError ;
 			imgLoadedSuccess = imgLoadedError = function(){
 				imageStatus.loaded = imageStatus.loaded +1;
-		        updateUI(document.getElementById('loadingSpeed'),imageStatus.loaded,imageStatus.imgLength);
+		        updateUI(loadingSpeedUi,imageStatus.loaded,imageStatus.imgLength,loadedCallBack);
 			}    
 		};
 
 
 
-		function updateUI(loadingIconElement,Loadedcount,total){
+		function updateUI(loadingIconElement,Loadedcount,total,loadedCallBack){
 		    var loadingSpeed = loadingIconElement; // 获取显示图片加载速度的dom标签 
 		    var speed = parseInt( Loadedcount / ( total - 1 ) * 100) ; 
 		    loadingSpeed.innerHTML = speed + "%";
+		    
 		    if(speed == 100){
-		        showPage();
+		        loadedCallBack();
 		    }
-		}
-
-		function showPage(){
-			document.getElementById('maincon').style.display="block";
-    		document.getElementById('loadingPage').style.display="none";
 		}
 	};
 
-	var imgLoader = this.imgLoader = {
-		loadAllImages : imagesLoaded
-	}
 
-
-	return this.imgLoader;
+	return imgLoader;
 	
 })();
 
