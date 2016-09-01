@@ -527,7 +527,13 @@ window.onload=function(){
 </script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {         
-        imgLoader.loadAllImages();
+        imgLoader.loadAllImages({
+            loadingSpeedUi : document.getElementById('loadingSpeed'),
+            loadedCallBack : function(){
+                document.getElementById('maincon').style.display="block";
+                document.getElementById('loadingPage').style.display="none";
+            }
+        });
     });
 </script>
 </html>
